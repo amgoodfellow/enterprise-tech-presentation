@@ -1,0 +1,90 @@
+#+TITLE: Enterprise Technology Expo
+#+AUTHOR: Aaron Goodfellow
+
+* Purpose
+This project aims to showcase several technologies and testing frameworks
+available for Enterprise software development
+
+* Technology covered
+1. [[https://gradle.org][Gradle]]
+   - A build tool created to replace Apache Maven
+   - Boasts several cool features:
+     - Default support for incremental builds
+     - Supports build caching system
+     - Starts a Daemon for keeping relevant information in-memory
+   - The official build tool for Android
+   - No more ~pom~ files (woo!)
+   - [[https://gradle.org/maven-vs-gradle/][For more info vs Maven...]]
+2. [[https://spring.io/projects/spring-boot][SpringBoot]]
+   - An opinionated, pre-configured starting point for Spring microservices
+   - No XML configuration needed
+     - (And typically very little configuration at all)
+   - Built-in Tomcat webserver
+3. [[https://projectlombok.org/][Lombok]]
+   - A library that eliminates the need to write getters and setters
+4. [[https://intuit.github.io/karate/][Karate]]
+   - From their GitHub: /web-services testing made simple/
+   - Combines test-automation, mocks, and performance testing into a single framework
+   - Has a simple Gherkin's based DSL
+   - Can be used as self-documenting API contract testing
+5. [[https://reactjs.org/][ReactJS]]
+   - A JS library by Facebook for building UIs
+   - Concept of /state/ simplifies UI management
+   - One of the top UI frameworks today
+6. [[https://jestjs.io/][Jest]]
+   - JS testing framework with a focus on simplicity
+   - Created by Facebook, with good React integration
+     - Also works with Node, Angular, and Vue
+   - Support Snapshot Testing
+   - Tests are run in parallel
+   - No config needed
+
+** Disclaimer
+Basically every developer has a tech stack that they love, or best-practice opinions which they're passionate
+about. Sometimes developers can get a little /too/ caught up in thinking that their preferences are the 
+/best/ or /only/ way to go about developing software. That's not what I'm trying to do here. I'm not trying
+to assert that SpringBoot is the be-all end-all for webservices (In fact, for personal projects, I tend to 
+stay away from the JVM as much as I can). 
+
+All this repo is trying to point out is that there are benefits associated with a lot of these "newer" technologies
+which translate to tangible increases in software reliability and programmer productivity. At the end of the 
+day, I think that every company should occasionally take a look at their infastructure and determine if each
+tool they're using is really the best tool for the job. 
+
+
+
+* Hopeful Takeaway
+As a company grows from startup to Enterprise level, it can be very easy to get
+stuck in a rut, or to continue to do things the same way simply because it's the way things
+have always been done. Although jumping on the hype-train every time some new framework comes
+around is hardly a good idea, it's important to remember that code, methodology, and frameworks
+are all /infastructure/. And just like physical infastructure, codebases decay over time; they require
+special care to keep them well-organized and running smoothly.
+
+Business managers tend to criticize developers for being too
+picky about the technology with which they work, and maybe rightly so. But I do think developers
+have fair reason to be picky. A decaying codebase comes with real-world costs, such as being unnatractive
+to new talent, requiring much longer training time (as the tech gets more and more outdated), 
+becoming harder to maintain, and finally becoming less and less reliable.
+
+* Example Project
+In this repo, there's an example project. It's a very simple SpringBoot webapp built with Gradle, and tested
+with Karate. It serves up a React frontend which uses Jest's Unit Testing and Snapshot Testing features.
+
+** Backend
+
+To build / run the SpringBoot backend:
+#+begin_src 
+./gradlew clean bootRun
+#+end_src
+This will build pull in dependencies, build your java project, run the tests, and start up an embedded
+Tomcat server. The server will start up a simple Rest API on port 8080  
+
+** Frontend
+
+To build / run the ReactJS Frontend
+#+begin_src 
+npm i && npm start
+#+end_src
+This will pull in all ~npm~ dependencies and build your node project. It will also start a test server
+running on port 3000.
